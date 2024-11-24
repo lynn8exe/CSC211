@@ -1,0 +1,54 @@
+package mod6;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class AWTExample2 extends Frame {
+
+    // Constructor to set up GUI components
+    AWTExample2() {
+        // Creating components
+        Label l = new Label("Employee ID:");
+        TextField t = new TextField();
+        Button b = new Button("Submit");
+        Button exitButton = new Button("Exit");
+
+        // Setting positions
+        l.setBounds(20, 80, 80, 30);
+        t.setBounds(20, 100, 80, 30);
+        b.setBounds(100, 100, 80, 30);
+        exitButton.setBounds(200, 100, 80, 30);
+
+        // Adding components to frame
+        add(l);
+        add(t);
+        add(b);
+        add(exitButton);
+
+        // Frame properties
+        setSize(400, 300);
+        setTitle("Employee Info");
+        setLayout(null);
+        setVisible(true);
+
+        // Action listener for exit button
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Exiting application...");
+                System.exit(0); // Close application
+            }
+        });
+
+        // Window listener for "X" button
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.out.println("Application closed.");
+                System.exit(0); // Close application
+            }
+        });
+    }
+
+    public static void main(String args[]) {
+        new AWTExample2();
+    }
+}
